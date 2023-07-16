@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="40dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginRight="10dp"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:orientation="vertical"
+                android:background="@drawable/box_corner"
+                android:backgroundTint="@color/white"
+                android:layout_marginBottom="10dp"
+                android:padding="20dp"
+                android:gravity="center">
+                <ImageButton
+                    android:id="@+id/btnToNotif"
+                    android:layout_width="100dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:contentDescription="Notification"
+                    android:background="@drawable/icon_email" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="16dp"
+                    android:textColor="@color/black"
+                    android:text="Notification"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:orientation="vertical"
+                android:background="@drawable/box_corner"
+                android:backgroundTint="@color/white"
+                android:layout_marginBottom="10dp"
+                android:padding="20dp"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/btnToInfo"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:contentDescription="Information"
+                    android:background="@drawable/icon__info" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="16dp"
+                    android:textColor="@color/black"
+                    android:text="Information"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:orientation="vertical"
+                android:background="@drawable/box_corner"
+                android:backgroundTint="@color/white"
+                android:gravity="center">
+                <ImageButton
+                    android:id="@+id/btnToHelp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:contentDescription="Help"
+                    android:background="@drawable/icon_help" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="16dp"
+                    android:textColor="@color/black"
+                    android:text="Help"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:orientation="vertical"
+                android:background="@drawable/box_corner"
+                android:backgroundTint="@color/white"
+                android:layout_marginBottom="10dp"
+                android:padding="20dp"
+                android:gravity="center">
+                <ImageButton
+                    android:id="@+id/btnToRecap"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:contentDescription="Recapitulation"
+                    android:background="@drawable/icon_recap" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="16dp"
+                    android:textColor="@color/black"
+                    android:text="Recapitulation"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:orientation="vertical"
+                android:background="@drawable/box_corner"
+                android:backgroundTint="@color/white"
+                android:layout_marginBottom="10dp"
+                android:padding="20dp"
+                android:gravity="center">
+
+                <ImageButton
+                    android:id="@+id/btnToProfile"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:contentDescription="Profile"
+                    android:background="@drawable/icon_profil" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="16dp"
+                    android:textColor="@color/black"
+                    android:text="Profile"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:orientation="vertical"
+                android:background="@drawable/box_corner"
+                android:backgroundTint="@color/white"
+                android:gravity="center">
+                <ImageButton
+                    android:id="@+id/btnToAbout"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:contentDescription="About us"
+                    android:background="@drawable/about_us" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textSize="16dp"
+                    android:textColor="@color/black"
+                    android:text="About Us"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
