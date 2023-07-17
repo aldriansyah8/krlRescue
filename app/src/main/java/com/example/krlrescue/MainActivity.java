@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
+    //TEST 123
 
     ImageButton btnInfo, btnNotif, btnAbout, btnRecap, btnHelp, btnProfil;
 
