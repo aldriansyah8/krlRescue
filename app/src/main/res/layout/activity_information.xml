@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/opensans_bold"
-        android:text="Notification"
+        android:text="Information"
         android:textColor="@color/white"
         android:textSize="20dp" />
 
