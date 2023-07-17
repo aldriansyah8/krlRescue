@@ -82,7 +82,7 @@ public class NotificationActivity extends AppCompatActivity {
 
                 if (location == 1){
                     alarm.setBackground(ContextCompat.getDrawable(NotificationActivity.this, R.drawable.img_a));
-                    alarmPosition = "pintu A";
+                    alarmPosition = "pintu A.";
                 } else if (location == 2){
                     alarm.setBackground(ContextCompat.getDrawable(NotificationActivity.this, R.drawable.img_b));
                     alarmPosition = "pintu B";
