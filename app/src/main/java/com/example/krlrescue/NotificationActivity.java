@@ -4,9 +4,16 @@ import static com.example.krlrescue.SigninActivity.newUser;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.media.AudioAttributes;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -27,6 +34,7 @@ public class NotificationActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference myRef;
     FirebaseAuth mAuth;
+    private Integer n = 1;
     private String alarmPosition;
     private Integer location;
 
@@ -72,7 +80,7 @@ public class NotificationActivity extends AppCompatActivity {
         readData();
     }
 
-    private void warningSystem(){
+    private void warningSystem() {
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("mcu-device").child("data");
         myRef.addValueEventListener(new ValueEventListener() {
@@ -80,18 +88,22 @@ public class NotificationActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 location = snapshot.child("locationNumber").getValue(Integer.class);
 
-                if (location == 1){
+                if (location == 1) {
                     alarm.setBackground(ContextCompat.getDrawable(NotificationActivity.this, R.drawable.img_a));
                     alarmPosition = "pintu A.";
-                } else if (location == 2){
+                    pushNotification(n, "WARNING!, Petugas harap segera menuju lokasi", "Emergency button pintu A ditekan");
+                } else if (location == 2) {
                     alarm.setBackground(ContextCompat.getDrawable(NotificationActivity.this, R.drawable.img_b));
                     alarmPosition = "pintu B";
-                } else if (location == 3){
+                    pushNotification(n, "WARNING!, Petugas harap segera menuju lokasi", "Emergency button pintu B ditekan");
+                } else if (location == 3) {
                     alarm.setBackground(ContextCompat.getDrawable(NotificationActivity.this, R.drawable.img_c));
                     alarmPosition = "pintu C";
-                } else if (location == 4){
+                    pushNotification(n, "WARNING!, Petugas harap segera menuju lokasi", "Emergency button pintu C ditekan");
+                } else if (location == 4) {
                     alarm.setBackground(ContextCompat.getDrawable(NotificationActivity.this, R.drawable.img_d));
                     alarmPosition = "pintu D";
+                    pushNotification(n, "WARNING!, Petugas harap segera menuju lokasi", "Emergency button pintu D ditekan");
                 } else {
                     alarm.setBackground(ContextCompat.getDrawable(NotificationActivity.this, R.drawable.img_default));
                     alarmPosition = "tidak ada alarm";
@@ -105,7 +117,7 @@ public class NotificationActivity extends AppCompatActivity {
         });
     }
 
-    private void readData(){
+    private void readData() {
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("Users").child(newUser);
         myRef.addValueEventListener(new ValueEventListener() {
@@ -117,7 +129,7 @@ public class NotificationActivity extends AppCompatActivity {
                 serial = snapshot.child("serial-number").getValue(String.class);
                 txtSerial.setText(serial);
 
-                txtLocation.setText("Gerbong serial number " + serial + ", " + alarmPosition);
+                txtLocation.setText("Serial number " + serial + ", " + alarmPosition);
             }
 
             @Override
@@ -126,4 +138,28 @@ public class NotificationActivity extends AppCompatActivity {
             }
         });
     }
+
+    //fungsi untuk menampilkan notifikasi
+    private void pushNotification(Integer n, String ContentTitle, String ContentText) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(n.toString(), "Notification", NotificationManager.IMPORTANCE_HIGH);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        final String CHANNEL_ID = n.toString();
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.icon_logo)
+                .setContentTitle(ContentTitle)
+                .setContentText(ContentText)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setAutoCancel(true);
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(n, builder.build());
+
+        this.n++;
+    }
+
 }
