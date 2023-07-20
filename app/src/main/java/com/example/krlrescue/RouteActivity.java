@@ -24,6 +24,7 @@ public class RouteActivity extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference myRef;
     private FirebaseAuth mAuth;
+    protected static String gerbong;
     String[] route = new String[] {"Jakarta Kota - Bogor", "Cikarang - Manggarai", "Bekasi - Jakarta Kota"};
     String[] serial = new String[] {"5738A", "5104A", "4060B"};
 
@@ -57,6 +58,7 @@ public class RouteActivity extends AppCompatActivity {
 
                 myRef = database.getReference("Users").child(newUser).child("serial-number");
                 myRef.setValue(selectedSerial);
+                gerbong = selectedSerial;
 
                 if (flagRoute == true) {
                     Intent intent = new Intent(RouteActivity.this, MainActivity.class);
