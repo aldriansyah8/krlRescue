@@ -40,7 +40,8 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableViewHol
         public void onBindViewHolder(@NonNull TableViewHolder holder, int position) {
             TableItem tableItem = tableItemList.get(position);
             String dateTimeString = convertUnixTimeToDateTime(tableItem.getUnixTime());
-            gerbong = "Gerbong " + tableItem.getLocationNumber();
+            String loc = convertNumberToExcelColumn(tableItem.getLocationNumber());
+            gerbong = "Gerbong " + loc;
             holder.noTextView.setText(String.valueOf(tableItem.getNo()));
             holder.unixTimeTextView.setText(dateTimeString);
             holder.locationNumberTextView.setText(gerbong);
@@ -53,7 +54,10 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableViewHol
         }
 
         // ...
-
+        public void updateData(List<TableItem> newData) {
+            this.tableItemList = newData;
+            notifyDataSetChanged();
+        }
     public String convertUnixTimeToDateTime(long unixTime) {
         // Waktu dari UnixTime dalam bentuk milidetik (ms)
         Date date = new Date(unixTime * 1000);
@@ -76,4 +80,17 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableViewHol
                 locationNumberTextView = itemView.findViewById(R.id.locationNumberTextView);
             }
         }
+
+    private String convertNumberToExcelColumn(int number) {
+        StringBuilder column = new StringBuilder();
+
+        while (number > 0) {
+            int remainder = (number - 1) % 26; // Dapatkan sisa pembagian dari 0 hingga 25
+            char ch = (char) (remainder + 'A'); // Konversi ke huruf berdasarkan ASCII
+            column.insert(0, ch);
+            number = (number - 1) / 26; // Hitung nilai selanjutnya untuk iterasi berikutnya
+        }
+
+        return column.toString();
+    }
     }
