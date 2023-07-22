@@ -11,7 +11,6 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
-    //TEST 123
 
     ImageButton btnInfo, btnNotif, btnAbout, btnRecap, btnHelp, btnProfil;
 
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, InformationActivity.class);
-                startActivity(i);
+                startActivity(i); overridePendingTransition(0, 0);
             }
         });
 
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, NotificationActivity.class);
-                startActivity(i);
+                startActivity(i); overridePendingTransition(0, 0);
             }
         });
 
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, AboutusActivity.class);
-                startActivity(i);
+                startActivity(i); overridePendingTransition(0, 0);
             }
         });
 
@@ -58,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, RecapitulationActivity.class);
-                startActivity(i);
+                startActivity(i); overridePendingTransition(0, 0);
             }
         });
 
@@ -66,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, HelpActivity.class);
-                startActivity(i);
+                startActivity(i); overridePendingTransition(0, 0);
             }
         });
 
@@ -74,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, ProfileActivity.class);
-                startActivity(i);
+                startActivity(i); overridePendingTransition(0, 0);
             }
         });
     }

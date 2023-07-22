@@ -26,7 +26,7 @@ public class AboutusActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(AboutusActivity.this, InformationActivity.class);
-                startActivity(i);
+                startActivity(i); overridePendingTransition(0, 0);
             }
         });
 
@@ -34,7 +34,7 @@ public class AboutusActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(AboutusActivity.this, MainActivity.class);
-                startActivity(i);
+                startActivity(i); overridePendingTransition(0, 0);
             }
         });
 
@@ -42,7 +42,7 @@ public class AboutusActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(AboutusActivity.this, ProfileActivity.class);
-                startActivity(i);
+                startActivity(i); overridePendingTransition(0, 0);
             }
         });
     }

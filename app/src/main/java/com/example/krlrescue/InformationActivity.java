@@ -46,7 +46,7 @@ public class InformationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(InformationActivity.this, RouteActivity.class);
-                startActivity(i);
+                startActivity(i); overridePendingTransition(0, 0);
 
                 flagRoute = false;
             }
@@ -56,7 +56,7 @@ public class InformationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(InformationActivity.this, MainActivity.class);
-                startActivity(i);
+                startActivity(i); overridePendingTransition(0, 0);
             }
         });
 
@@ -64,7 +64,7 @@ public class InformationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(InformationActivity.this, ProfileActivity.class);
-                startActivity(i);
+                startActivity(i); overridePendingTransition(0, 0);
             }
         });
 

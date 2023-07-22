@@ -53,7 +53,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ProfileActivity.this, InformationActivity.class);
-                startActivity(i);
+                startActivity(i); overridePendingTransition(0, 0);
             }
         });
 
@@ -61,7 +61,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ProfileActivity.this, MainActivity.class);
-                startActivity(i);
+                startActivity(i); overridePendingTransition(0, 0);
             }
         });
 
