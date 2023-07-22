@@ -263,7 +263,7 @@ public class RecapitulationActivity extends AppCompatActivity {
             } else if (tableItem.getLocationNumber() == 4){
                 loc = "D";
             }
-            gerbong = "Gerbong " + loc;
+            gerbong = "Pintu " + loc;
             csvBuilder.append("\"").append(tableItem.getNo()).append("\",")
                     .append("\"").append(dateTimeString).append("\",")
                     .append("\"").append(gerbong).append("\"\n");

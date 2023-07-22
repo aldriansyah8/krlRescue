@@ -41,7 +41,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.TableViewHol
             TableItem tableItem = tableItemList.get(position);
             String dateTimeString = convertUnixTimeToDateTime(tableItem.getUnixTime());
             String loc = convertNumberToExcelColumn(tableItem.getLocationNumber());
-            gerbong = "Gerbong " + loc;
+            gerbong = "Pintu " + loc;
             holder.noTextView.setText(String.valueOf(tableItem.getNo()));
             holder.unixTimeTextView.setText(dateTimeString);
             holder.locationNumberTextView.setText(gerbong);
