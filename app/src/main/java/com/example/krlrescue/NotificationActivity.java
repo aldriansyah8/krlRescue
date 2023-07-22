@@ -35,7 +35,7 @@ public class NotificationActivity extends AppCompatActivity {
     DatabaseReference myRef;
     FirebaseAuth mAuth;
     private Integer n = 1;
-    private String alarmPosition;
+    private String alarmPosition, route, serial;
     private Integer location;
 
     @Override
@@ -90,23 +90,28 @@ public class NotificationActivity extends AppCompatActivity {
 
                 if (location == 1) {
                     alarm.setBackground(ContextCompat.getDrawable(NotificationActivity.this, R.drawable.img_a));
-                    alarmPosition = "pintu A.";
+                    //alarmPosition = "pintu A.";
+                    txtLocation.setText("Serial number " + serial + ", pintu A");
                     pushNotification(n, "WARNING!, Petugas harap segera menuju lokasi", "Emergency button pintu A ditekan");
                 } else if (location == 2) {
                     alarm.setBackground(ContextCompat.getDrawable(NotificationActivity.this, R.drawable.img_b));
-                    alarmPosition = "pintu B";
+                    //alarmPosition = "pintu B";
+                    txtLocation.setText("Serial number " + serial + ", pintu B");
                     pushNotification(n, "WARNING!, Petugas harap segera menuju lokasi", "Emergency button pintu B ditekan");
                 } else if (location == 3) {
                     alarm.setBackground(ContextCompat.getDrawable(NotificationActivity.this, R.drawable.img_c));
-                    alarmPosition = "pintu C";
+                    //alarmPosition = "pintu C";
+                    txtLocation.setText("Serial number " + serial + ", pintu C");
                     pushNotification(n, "WARNING!, Petugas harap segera menuju lokasi", "Emergency button pintu C ditekan");
                 } else if (location == 4) {
                     alarm.setBackground(ContextCompat.getDrawable(NotificationActivity.this, R.drawable.img_d));
-                    alarmPosition = "pintu D";
+                    //alarmPosition = "pintu D";
+                    txtLocation.setText("Serial number " + serial + ", pintu F");
                     pushNotification(n, "WARNING!, Petugas harap segera menuju lokasi", "Emergency button pintu D ditekan");
                 } else {
                     alarm.setBackground(ContextCompat.getDrawable(NotificationActivity.this, R.drawable.img_default));
-                    alarmPosition = "tidak ada alarm";
+                    //alarmPosition = "tidak ada alarm";
+                    txtLocation.setText("Serial number " + serial + ", tidak ada alarm");
                 }
             }
 
@@ -123,13 +128,10 @@ public class NotificationActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String route, serial;
                 route = snapshot.child("route").getValue(String.class);
                 txtRoute.setText(route);
                 serial = snapshot.child("serial-number").getValue(String.class);
                 txtSerial.setText(serial);
-
-                txtLocation.setText("Serial number " + serial + ", " + alarmPosition);
             }
 
             @Override
